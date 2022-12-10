@@ -14,7 +14,7 @@ const Container: React.FC<ContainerProps> = ({ children }: ContainerProps) => {
   return (
     <Content
       style={{
-        margin: "24px 16px",
+        margin: "24px 24px",
         padding: 24,
         minHeight: 280,
         background: colorBgContainer,

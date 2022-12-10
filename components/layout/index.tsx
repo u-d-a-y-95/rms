@@ -8,12 +8,10 @@ interface AppLayoutProps {
   children: any;
 }
 
-const AppLayout: React.FC<AppLayoutProps> = ({children}) => {
-  const [collapsed, setCollapsed] = useState(false);
-
+const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   return (
-    <Layout>
-      <Sideber collapsed={collapsed} />
+    <Layout style={{ height: "100vh" }}>
+      <Sideber />
       <Layout>
         <Topbar />
         <Container>{children}</Container>
