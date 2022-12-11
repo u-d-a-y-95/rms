@@ -1,7 +1,12 @@
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { Table } from "antd";
 import Head from "next/head";
+import { useProduct } from "../hooks/useProduct";
+import { getProducts } from "../services/query/product.query";
 
 export default function Products() {
+  const{data} = useProduct()
+  console.log(data)
   const columns = [
     {
       title: "Name",
@@ -30,3 +35,15 @@ export default function Products() {
     </div>
   );
 }
+
+export const getServerSideProps = async () => {
+  const queryClient = new QueryClient();
+
+  await getProducts(queryClient);
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+};
