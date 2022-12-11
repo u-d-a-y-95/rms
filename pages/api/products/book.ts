@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { getProducts } from "../../backend/products";
+import { bookProduct, getProducts } from "../../../backend/products";
 
 interface IHandler {
   [key: string]: any;
 }
 const handler: IHandler = {
-  GET: getProducts,
+  POST: bookProduct,
 };
 
 export default function Products(
